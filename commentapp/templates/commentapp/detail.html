@@ -1,0 +1,17 @@
+<div class="detail_page detail_component commentcontent">
+    <div class="div-block-3">
+        <hr>
+        <div class="text-label">
+            이름 :
+            {% if comment.writer.profile %}
+            {{comment.writer.profile.name}}
+            {% elif comment.writer %}
+            {{comment.writer}}
+            {% else %}
+            알수없음
+            {% endif %}
+        -- {{ comment.created_at }}</div><br>
+            <div class="paragraph-70">{{ comment.content }}</div>
+
+    </div>
+</div>

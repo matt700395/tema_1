@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="feature col" style="margin: 1.8rem">
+    <h2 style="color: black">{{target_post.writer}} 의 리뷰</h2>
+    <h2 style="color: black">원룸 : {{target_post.room}}</h2>
+            <h2 style="color: black">별점 :
+            {% if target_post.rate == '5점' %}
+            ★★★★★
+            {% elif target_post.rate == '4점' %}
+            ★★★★☆
+            {% elif target_post.rate == 3 %}
+            ★★★☆☆
+            {% elif target_post.rate == 2 %}
+            ★★☆☆☆
+            {% else %}
+            ★☆☆☆☆
+            {% endif %}</h2>
+            <div>
+                <h3>내용 : {{target_post.content | safe}}</h3>
+            </div>
+
+        </div><br>
+
+<!--목록 가기-->
+<a href="{% url 'reviewapp:list' %}">목록</a>
+
+{% endblock %}
